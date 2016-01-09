@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?php
+
+/**
+ * This file will create a message
+ */
+?>
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -19,10 +20,17 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <h1>
-            <?php
-            echo "Hello, world!";
-            ?>
-        </h1>
+        <header></header>
+        <aside></aside>
+        <form method="POST" action="insert.php">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input name="title" type="text" class="form-control" id="title" placeholder="Title">
+            </div>
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea name="content" class="form-control" id="content" placeholder="content"></textarea>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
     </body>
 </html>
