@@ -38,7 +38,7 @@ and open the template in the editor.
             foreach ($_SESSION['messages'] as $key => $message) {
                 //echo $key;
                 echo "<h3>" . $message["title"] . "</h3>";
-                echo "<p>" . $message["content"] . "</p>" ;
+                echo "<p>" . substr($message["content"], 0, 10) . "...</p>" ;
                 echo "<a href=\"show.php?message=" . $key . "\">Naar het hele bericht</a>";
                 echo "</br>";
             }
