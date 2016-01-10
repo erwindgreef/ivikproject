@@ -19,27 +19,68 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <?php
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/message/index.php">Messageboard</a>
+                    </div>
 
-            /**
-             * This file will show one messages
-             * 
-             */
-            session_start();
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="/message/index.php">Messages <span class="sr-only">(current)</span></a></li>
+                            <li><a href="/message/create.php">Create</a></li>
+                        </ul> 
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+            <div class="col-md-8">
+                <?php
+
+                    /**
+                     * This file will show one messages
+                     * 
+                     */
+                    session_start();
 
 
-            /**
-             * message nummer wordt uit de URL gehaald met GET
-             */
-            $message_num = $_GET['message'];
+                    /**
+                     * message nummer wordt uit de URL gehaald met GET
+                     */
+                    $message_num = $_GET['message'];
 
-            //var_dump ($_SESSION['messages'][$message_num]);  
+                    //var_dump ($_SESSION['messages'][$message_num]);  
 
-            $message = $_SESSION['messages'][$message_num];
+                    $message = $_SESSION['messages'][$message_num];
 
-            echo "<h3>" . $message["title"] . "</h3>";
-            echo "<p>" . $message["content"] . "</p>";
-            echo "</br>";
-        ?>
+                    echo "<h3>" . $message["title"] . "</h3>";
+                    echo "<p>" . $message["content"] . "</p>";
+                    echo "</br>";
+                    
+                    //echo count($_SESSION['messages']);
+                  
+                ?>
+                <nav>
+                    <ul class="pager">
+                        <?php
+                        if ($message_num > 0){
+                        echo '<li class="previous"><a href="show.php?message=' . ($message_num - 1) . '"><span aria-hidden="true">&larr;</span> Older message</a></li>';
+                        }
+                        if (($message_num + 1) < (count($_SESSION['messages']))){
+                        echo '<li class="next"><a href="show.php?message=' . ($message_num + 1) . '">Newer message<span aria-hidden="true">&rarr;</span></a></li>';
+                        }
+                        ?>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </body>
 </html>
