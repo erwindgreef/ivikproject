@@ -1,47 +1,15 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?php
+include('/functions.php');
+?>
 <html>
     <head>
         <meta charset="UTF-8">
-        
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <?php include_once ("../bootstrap.php"); ?>
         <title></title>
     </head>
     <body>
         <div class="container">
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="/message/index.php">Messageboard</a>
-                    </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="/message/index.php">Messages <span class="sr-only">(current)</span></a></li>
-                            <li><a href="/message/create.php">Create</a></li>
-                        </ul> 
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav>
+            <?php include '../templates/header.php'; ?>
             <div class="col-md-8">
                 <?php
 
@@ -55,31 +23,34 @@ and open the template in the editor.
                     /**
                      * message nummer wordt uit de URL gehaald met GET
                      */
-                    $message_num = $_GET['message'];
-
-                    //var_dump ($_SESSION['messages'][$message_num]);  
-
-                    $message = $_SESSION['messages'][$message_num];
+                    $messageKey = $_GET['message'];  
+                    $message = $_SESSION['messages'][$messageKey];
 
                     echo "<h3>" . $message["title"] . "</h3>";
                     echo "<p>" . $message["content"] . "</p>";
                     echo "</br>";
                     
-                    //echo count($_SESSION['messages']);
-                  
+                    // Maak een array van de keys van de messages
+                    $messageKeys = array_keys($_SESSION['messages']);
+                    // Flip deze keys zodat je een nette volgorde krijgt van de messages. (bv. keys 0, 1, 2 => values 3, 5, 6, 8)
+                    $flipMessageKeys = array_flip($messageKeys);
+                    // De pager kan nu door de messages lopen met messageKeys + 1 en -1. De waarde is dan de key van de message ($flipMessageKeys) 
+                 
                 ?>
                 <nav>
                     <ul class="pager">
                         <?php
-                        if ($message_num > 0){
-                        echo '<li class="previous"><a href="show.php?message=' . ($message_num - 1) . '"><span aria-hidden="true">&larr;</span> Older message</a></li>';
+                        if ($messageKey > min(array_keys($_SESSION['messages']))){
+                        echo '<li class="previous"><a href="show.php?message=' . $messageKeys[$flipMessageKeys[$_GET['message']] - 1] . '"><span aria-hidden="true">&larr;</span> Older message</a></li>';
                         }
-                        if (($message_num + 1) < (count($_SESSION['messages']))){
-                        echo '<li class="next"><a href="show.php?message=' . ($message_num + 1) . '">Newer message<span aria-hidden="true">&rarr;</span></a></li>';
+                        if ($messageKey < max(array_keys($_SESSION['messages']))){
+                        echo '<li class="next"><a href="show.php?message=' . $messageKeys[$flipMessageKeys[$_GET['message']] + 1] . '">Newer message<span aria-hidden="true">&rarr;</span></a></li>';
                         }
                         ?>
                     </ul>
+                    <a href="index.php"><button style="margin-top: 0px;" type="button" class="btn btn-primary">Terug naar alle berichten</button></a>
                 </nav>
+                
             </div>
         </div>
     </body>
