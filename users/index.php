@@ -13,25 +13,25 @@
                  <?php 
                 include '/../templates/header.php'; 
                 ?>
-                <h1>Messages</h1>
+                <h1>Users</h1>
             </header>
             <div class="col-md-10">
                 <table class="table table-hover table-responsive">
                     <thead>
                         <tr>
-                            <th>Title</th>
-                            <th>Content</th>
+                            <th>Name</th>
+                            <th>About me!</th>
                             <th>Options</th>
                         </tr>
                     <thead>
                     <tbody>
                         <?php
                         session_start();
-                        listTable("messages"); 
+                        listTable("users"); 
                         ?>
                     </tbody>
                 </table>
-                <a href="create.php"><button  style="margin-top: 30px;" type="button" class="btn btn-primary">Make a message</button></a>
+                <a href="create.php"><button  style="margin-top: 30px;" type="button" class="btn btn-primary">Create a user</button></a>
                 
             </div>
         </div>

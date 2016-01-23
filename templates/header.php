@@ -14,8 +14,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="<?php navActive("index"); ?>"><a href="/messages/index.php">Messages<?php navCurrent("index"); ?></a></li>
-                <li class="<?php navActive("create"); ?>"><a href="/messages/create.php">Create<?php navCurrent("create"); ?></a></li>
+                <li class="<?php navActive("messages", "index"); ?>"><a href="/messages/index.php">Messages<?php navCurrent("index"); ?></a></li>
+                <li class="<?php navActive("users", "index"); ?>"><a href="/users/index.php">Users<?php navCurrent("create"); ?></a></li>
             </ul> 
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

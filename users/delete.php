@@ -1,10 +1,11 @@
 <?php
 /**
- * Delete message
+ * Delete user
  */
 session_start();
 include '/../functions.php';
-deleteItem("messages");
+deleteItem("users");
 header('location: index.php');
 exit;
 ?>
+

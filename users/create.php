@@ -12,7 +12,7 @@
         <div class="container">
             <header>
                 <?php include '/../templates/header.php'; ?>
-                <h1>Write a message</h1>
+                <h1>New user</h1>
             </header>
             <aside></aside>
             
@@ -20,14 +20,14 @@
                 <form method="POST" action="insert.php">
                     <div class="form-group">
                         <div class="form-group">
-                        <label for="title">Title</label>
-                        <input type="text" name="title" class="form-control" rows="1" placeholder="title" value="<?php formContentSession("title"); ?>">
-                        <span class="help-block" style="color: red"><?php formError("title"); ?></span>
+                        <label for="name">Name</label>
+                        <input type="text" name="name" class="form-control" placeholder="Name" value="<?php formContentSession("name"); ?>">
+                        <span class="help-block" style="color: red"><?php formError("name"); ?></span>
                     </div>
                     <div class="form-group">
-                        <label for="content">Content</label>
-                        <textarea name="content" class="form-control" placeholder="content"><?php formContentSession("content"); ?></textarea>
-                        <span class="help-block" style="color: red"><?php formError("content"); ?></span>
+                        <label for="about me">About me</label>
+                        <textarea name="aboutMe" class="form-control" placeholder="About me"><?php formContentSession("aboutMe"); ?></textarea>
+                        <span class="help-block" style="color: red"><?php formError("aboutMe"); ?></span>
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
@@ -35,3 +35,4 @@
         </div>
     </body>
 </html>
+
