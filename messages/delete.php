@@ -1,7 +1,7 @@
 <?php
 session_start();
-include '/functions.php';
-deleteMessage();
+include '/../functions.php';
+deleteItem("messages");
 header('location: index.php');
 exit;
 ?>
