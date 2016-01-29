@@ -1,17 +1,17 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <?php 
-            include '/../css/bootstrap.php'; 
-            include '/../functions.php';
+        <?php
+            include '../css/bootstrap.php';
+            include '../functions.php';
         ?>
         <title></title>
     </head>
     <body>
         <div class="container">
             <header>
-                 <?php 
-                include '/../templates/header.php'; 
+                 <?php
+                include '../templates/header.php'; 
                 ?>
                 <h1>Messages</h1>
             </header>
@@ -27,12 +27,12 @@
                     <tbody>
                         <?php
                         session_start();
-                        listTable("messages"); 
+                        listTable("messages");
                         ?>
                     </tbody>
                 </table>
                 <a href="create.php"><button  style="margin-top: 30px;" type="button" class="btn btn-primary">Make a message</button></a>
-                
+
             </div>
         </div>
     </body>

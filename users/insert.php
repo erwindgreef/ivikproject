@@ -5,7 +5,6 @@
  */
 
 session_start();
-include '/../functions.php';
+include '../functions.php';
 insert("users");
 ?>
-

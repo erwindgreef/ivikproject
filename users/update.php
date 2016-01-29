@@ -1,11 +1,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <?php 
-        include "/../css/bootstrap.php"; 
-        include '/../functions.php';
+        <?php
+        include "../css/bootstrap.php";
+        include '../functions.php';
         session_start();
-        ?>        
+        ?>
         <title></title>
     </head>
     <body>
@@ -15,7 +15,7 @@
                 <h1>Update user</h1>
             </header>
             <aside></aside>
-            
+
             <div class="col-md-8">
                 <form method="POST" action="edit.php?id=<?php echo $_GET['id']; ?>">
                     <div class="form-group">
@@ -35,4 +35,3 @@
         </div>
     </body>
 </html>
-

@@ -16,8 +16,7 @@
             <ul class="nav navbar-nav">
                 <li class="<?php navActive("messages", "index"); ?>"><a href="/messages/index.php">Messages<?php navCurrent("index"); ?></a></li>
                 <li class="<?php navActive("users", "index"); ?>"><a href="/users/index.php">Users<?php navCurrent("create"); ?></a></li>
-            </ul> 
+            </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-

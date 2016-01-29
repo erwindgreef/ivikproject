@@ -1,17 +1,17 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <?php 
-            include '/../css/bootstrap.php'; 
-            include '/../functions.php';
+        <?php
+            include '../css/bootstrap.php';
+            include '../functions.php';
         ?>
         <title></title>
     </head>
     <body>
         <div class="container">
             <header>
-                 <?php 
-                include '/../templates/header.php'; 
+                 <?php
+                include '../templates/header.php';
                 ?>
                 <h1>Users</h1>
             </header>
@@ -27,12 +27,12 @@
                     <tbody>
                         <?php
                         session_start();
-                        listTable("users"); 
+                        listTable("users");
                         ?>
                     </tbody>
                 </table>
                 <a href="create.php"><button  style="margin-top: 30px;" type="button" class="btn btn-primary">Create a user</button></a>
-                
+
             </div>
         </div>
     </body>

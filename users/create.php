@@ -1,21 +1,21 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <?php 
-        include '/../css/bootstrap.php'; 
-        include '/../functions.php';
+        <?php
+        include '../css/bootstrap.php';
+        include '../functions.php';
         session_start();
-        ?>        
+        ?>
         <title></title>
     </head>
     <body>
         <div class="container">
             <header>
-                <?php include '/../templates/header.php'; ?>
+                <?php include '../templates/header.php'; ?>
                 <h1>New user</h1>
             </header>
             <aside></aside>
-            
+
             <div class="col-md-8">
                 <form method="POST" action="insert.php">
                     <div class="form-group">
@@ -35,4 +35,3 @@
         </div>
     </body>
 </html>
-

@@ -6,21 +6,21 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        
+
         <meta charset="UTF-8">
-        <?php 
-            include_once '/css/bootstrap.php';
-            include '/functions.php';
+        <?php
+            include_once 'css/bootstrap.php';
+            include 'functions.php';
         ?>
         <title>Messsageboard</title>
     </head>
     <body>
         <div class="container">
             <header>
-                <?php include '/templates/header.php'; ?>
+                <?php include 'templates/header.php'; ?>
                 <h1>Latest news</h1>
             </header>
-            <aside></aside>         
-        </div> 
+            <aside></aside>
+        </div>
     </body>
 </html>
