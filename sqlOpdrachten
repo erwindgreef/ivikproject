@@ -1,0 +1,127 @@
+#Opgave 1
+#Is geimporteerd
+
+#Opgave 2
+SELECT * FROM album
+
+#Opgave 3
+SELECT * FROM bestelitem
+
+#Opgave 4
+SELECT artiest, titel, genre FROM album
+
+#Opgave 5
+SELECT naam, adres FROM klant
+
+#Opgave 6
+SELECT artiest, titel, genre FROM album ORDER BY artiest
+
+#Opgave 7
+SELECT * FROM album ORDER BY titel
+
+#Opgave 8
+SELECT * FROM klant where woonplaats = "Amsterdam"
+
+#Opgave 9
+SELECT * FROM album WHERE genre = "Latin" ORDER BY prijs
+
+#Opgave 10
+SELECT * FROM album WHERE prijs BETWEEN 3.00 AND 4.00
+
+#Opgave 11
+SELECT * FROM bestelling WHERE datum BETWEEN "2007-1-1" AND "2007-1-2"
+
+#Opgave 12
+SELECT * FROM album WHERE prijs BETWEEN 3.00 AND 4.00 ORDER BY titel LIMIT 5
+
+#Opgave 13
+SELECT * FROM bestelling ORDER BY datum LIMIT 3
+
+#Opgave 14
+SELECT DISTINCT bestellingnr FROM bestelitem
+
+#Opgave 15
+SELECT DISTINCT albumcode FROM bestelitem
+
+#Opgave 16
+SELECT * FROM album WHERE titel LIKE "%azul%" ORDER BY titel
+
+#Opgave 17
+SELECT * FROM album WHERE titel LIKE "%girl%"
+
+#Opgave 18
+SELECT klant.naam, bestelling.bestellingnr FROM klant INNER JOIN bestelling ON klant.klantnr = bestelling.klantnr
+
+#Opgave 19
+SELECT album.artiest, album.albumcode, bestelitem.aantal FROM album INNER JOIN bestelitem ON album.albumcode = bestelitem.albumcode WHERE album.titel = "Rumba Azul"
+
+#Opgave 20
+SELECT klant.naam, klant.email, bestelling.klantnr, bestelling.datum FROM klant LEFT JOIN bestelling ON klant.klantnr = bestelling.klantnr
+
+#Opgave 21
+SELECT album.titel, bestelitem.bestellingnr, bestelitem.aantal
+FROM album LEFT JOIN bestelitem ON album.albumcode = bestelitem.albumcode
+
+#Opgave 22
+SELECT klant.naam, klant.email, album.titel, album.artiest, bestelitem.bestellingnr, bestelitem.aantal
+FROM klant INNER JOIN (bestelling
+  INNER JOIN (bestelitem
+    INNER JOIN album ON album.albumcode = bestelitem.albumcode)
+  ON bestelling.bestellingnr = bestelitem.bestellingnr)
+ON klant.klantnr = bestelling.klantnr
+WHERE bestelitem.albumcode = 'A1101'
+
+#Opgave 23
+SELECT albumcode, COUNT(aantal) FROM bestelitem GROUP BY albumcode
+
+#Opgave 24
+SELECT bestellingnr, COUNT(aantal) FROM bestelitem GROUP BY bestellingnr
+
+#Opgave25
+SELECT min(prijs) FROM album
+
+#Opgave26
+SELECT MAX(prijs) FROM album
+
+#Opgave27
+SELECT SUM(aantal) FROM bestelitem
+
+#Opgave28
+UPDATE klant SET adres = "Gilileiplantsoen 333", postcode = "1010RR" WHERE klantnr = "K1000"
+
+#Opgave29
+INSERT INTO klant (klantnr, naam, adres, postcode, woonplaats, email)
+VALUES ("K9999", "Lex Camilla", "Hagabakka 24", "4656RR", "Utrecht", "lecam@wanadoo.nl")
+
+#Opgave 30
+DELETE FROM klant WHERE klantnr = "K9999"
+
+#Opgave31
+CREATE DATABASE test
+
+#Opgave32
+DROP DATABASE test
+
+#Opgave33
+CREATE DATABASE administratie
+
+#Opgave34
+CREATE TABLE testtable (naam VARCHAR(15), leeftijd INT(2))
+
+#Opgave35
+DROP TABLE testtable
+
+#Opgave36
+CREATE TABLE leerlingen (leerlingnr INT(4), achternaam VARCHAR(15), voornaan VARCHAR(15), leeftijd INT(2), adres VARCHAR(15), postcode VARCHAR(6), woonplaats VARCHAR(15), telefoonnr VARCHAR(10), email VARCHAR(15), opleiding VARCHAR(15) )
+
+#Opgave37
+INSERT INTO leerlingen VALUES(1002, "Huisden", "Dylan", 18, "Middenweg 11", "1008VV", "Amsterdam", "0204445555", "dhuisden@rocva.nl", "ict")
+
+#Opgave38
+INSERT INTO leerlingen VALUES(1003, "Bosman", "Nitin", 17, "Leidseweg 22", "9900BB", "Amsterveen", "0209994444", "nbosman@hotmail.com", "ict")
+
+#Opgave39
+ALTER TABLE leerlingen RENAME studenten
+
+#Opgave40
+ALTER TABLE studenten MODIFY COLUMN postcode VARCHAR(10)
