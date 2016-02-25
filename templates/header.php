@@ -1,7 +1,4 @@
-<?php 
-    //include 'message/functions.php';
-?>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-static-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -11,16 +8,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/message/index.php">Messageboard</a>
+            <a class="navbar-brand" href="<?php echo "http://" . $_SERVER['HTTP_HOST']; ?>">Messageboard</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="<?php navActive("index"); ?>"><a href="/message/index.php">Messages<?php navCurrent("index"); ?></a></li>
-                <li class="<?php navActive("create"); ?>"><a href="/message/create.php">Create<?php navCurrent("create"); ?></a></li>
-            </ul> 
+                <li class="<?php navActive("messages", "index"); ?>"><a href="/messages/index.php">Messages<?php navCurrent("index"); ?></a></li>
+                <li class="<?php navActive("users", "index"); ?>"><a href="/users/index.php">Users<?php navCurrent("create"); ?></a></li>
+            </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-
